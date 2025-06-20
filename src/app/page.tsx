@@ -154,7 +154,7 @@ export default function Page() {
               </ul>
 
               <div className="text-destructive">Incorrect brand name</div>
-              <div className="cursor-not-allowed space-y-2 text-destructive line-through decoration-destructive/70 [&_li]:py-0.5">
+              <div className="cursor-not-allowed space-y-2 text-destructive line-through decoration-destructive/30 dark:decoration-destructive/70 [&_li]:py-0.5">
                 <ul>
                   <li>Shadcn/ui</li>
                   <li>ShadCn/ui</li>
