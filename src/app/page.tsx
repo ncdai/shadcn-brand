@@ -1,6 +1,7 @@
-import { ClipboardIcon, DownloadIcon } from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 
-import { Copy } from "@/components/copy";
+import { CopyButton } from "@/components/copy-button";
+import { CopyText } from "@/components/copy-text";
 import { ToggleTheme } from "@/components/toggle-theme";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -55,23 +56,18 @@ export default function Page() {
           <CardContent>
             <div className="grid grid-cols-1 gap-y-6 text-sm sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
               <div className="text-muted-foreground">Mark</div>
-              <div className="group/mark flex items-center gap-8">
-                <Copy value={SHADCN_UI_MARK_SVG} message="Copied Mark as SVG">
+              <div className="group flex items-center gap-6">
+                <CopyText
+                  value={SHADCN_UI_MARK_SVG}
+                  message="Copied Mark as SVG"
+                >
                   <ShadcnMark className="h-8" />
-                </Copy>
+                </CopyText>
 
-                <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover/mark:opacity-100">
+                <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="secondary" size="icon" asChild>
-                        <Copy
-                          className="size-7 cursor-default text-muted-foreground"
-                          value={SHADCN_UI_MARK_SVG}
-                          message="Copied Mark as SVG"
-                        >
-                          <ClipboardIcon />
-                        </Copy>
-                      </Button>
+                      <CopyButton value={SHADCN_UI_MARK_SVG} />
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>Copy Mark as SVG</p>
@@ -81,13 +77,13 @@ export default function Page() {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
-                        className="size-7 text-muted-foreground"
+                        className="size-6"
                         variant="secondary"
                         size="icon"
                         asChild
                       >
                         <a href="/shadcn-ui-mark.svg" download>
-                          <DownloadIcon />
+                          <DownloadIcon className="size-3" />
                         </a>
                       </Button>
                     </TooltipTrigger>
@@ -100,26 +96,18 @@ export default function Page() {
 
               <div className="text-muted-foreground">Logotype</div>
 
-              <div className="group/logotype flex items-center gap-8">
-                <Copy
+              <div className="group flex items-center gap-6">
+                <CopyText
                   value={SHADCN_UI_LOGOTYPE_SVG}
                   message="Copied Logotype as SVG"
                 >
                   <ShadcnLogotype className="h-8" />
-                </Copy>
+                </CopyText>
 
-                <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover/logotype:opacity-100">
+                <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="secondary" size="icon" asChild>
-                        <Copy
-                          className="size-7 cursor-default text-muted-foreground"
-                          value={SHADCN_UI_LOGOTYPE_SVG}
-                          message="Copied Logotype as SVG"
-                        >
-                          <ClipboardIcon />
-                        </Copy>
-                      </Button>
+                      <CopyButton value={SHADCN_UI_LOGOTYPE_SVG} />
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>Copy Logotype as SVG</p>
@@ -129,13 +117,13 @@ export default function Page() {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
-                        className="size-7 text-muted-foreground"
+                        className="size-6"
                         variant="secondary"
                         size="icon"
                         asChild
                       >
                         <a href="/shadcn-ui-logotype.svg" download>
-                          <DownloadIcon />
+                          <DownloadIcon className="size-3" />
                         </a>
                       </Button>
                     </TooltipTrigger>
@@ -149,9 +137,9 @@ export default function Page() {
               <div className="text-muted-foreground">Correct brand name</div>
               <ul className="[&_li]:py-0.5">
                 <li>
-                  <Copy className="font-bold" value="shadcn/ui">
+                  <CopyText className="font-bold" value="shadcn/ui">
                     shadcn/ui
-                  </Copy>
+                  </CopyText>
                 </li>
                 <li>
                   <p className="font-mono text-sm text-balance text-muted-foreground/70">
@@ -159,9 +147,9 @@ export default function Page() {
                   </p>
                 </li>
                 <li>
-                  <Copy className="font-bold" value="shadcn-ui">
+                  <CopyText className="font-bold" value="shadcn-ui">
                     shadcn-ui
-                  </Copy>
+                  </CopyText>
                 </li>
               </ul>
 

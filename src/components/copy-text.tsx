@@ -4,7 +4,7 @@ import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 
-export function Copy({
+export function CopyText({
   className,
   value,
   message = "Copied to clipboard",
@@ -17,10 +17,7 @@ export function Copy({
   return (
     <button
       type="button"
-      className={cn(
-        "flex cursor-copy items-center gap-1 font-medium",
-        className
-      )}
+      className={cn("cursor-copy", className)}
       onClick={() => {
         navigator.clipboard.writeText(value);
         toast.success(message);
