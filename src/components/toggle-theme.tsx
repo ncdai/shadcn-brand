@@ -23,20 +23,11 @@ export function ToggleTheme() {
   }, [resolvedTheme, setTheme, setMetaColor]);
 
   return (
-    <Button
-      className="size-8"
-      variant="ghost"
-      size="icon"
-      onClick={handleToggle}
-    >
-      {/* <MoonStarIcon className="hidden [html.dark_&]:block" /> */}
-      {/* <SunIcon className="hidden [html.light_&]:block" /> */}
-
+    <Button variant="ghost" size="icon" onClick={handleToggle}>
       {/* Source: @shadcn/ui */}
       <svg
+        className="size-4.5"
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

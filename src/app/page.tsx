@@ -4,6 +4,12 @@ import { Copy } from "@/components/copy";
 import { ToggleTheme } from "@/components/toggle-theme";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Page() {
   return (
@@ -11,10 +17,35 @@ export default function Page() {
       <header className="sticky top-0 z-50 flex h-14 items-center justify-between bg-background px-4 sm:px-6">
         <div className="flex items-center gap-2">
           <ShadcnMark className="size-6" />
-          <div className="font-bold">shadcn/brand</div>
+          <span className="font-bold">shadcn/brand</span>
         </div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="icon" asChild>
+            <a
+              href="https://github.com/ncdai/shadcn-brand"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  fill="currentColor"
+                />
+              </svg>
+              <span className="sr-only">GitHub</span>
+            </a>
+          </Button>
+
+          <Separator
+            className="data-[orientation=vertical]:h-5"
+            orientation="vertical"
+          />
+
           <ToggleTheme />
         </div>
       </header>
@@ -29,27 +60,41 @@ export default function Page() {
                   <ShadcnMark className="h-8" />
                 </Copy>
 
-                <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover/mark:opacity-100">
-                  <Button variant="secondary" size="icon" asChild>
-                    <Copy
-                      className="size-7 cursor-default text-muted-foreground"
-                      value={SHADCN_UI_MARK_SVG}
-                      message="Copied Mark as SVG"
-                    >
-                      <ClipboardIcon />
-                    </Copy>
-                  </Button>
+                <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover/mark:opacity-100">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="secondary" size="icon" asChild>
+                        <Copy
+                          className="size-7 cursor-default text-muted-foreground"
+                          value={SHADCN_UI_MARK_SVG}
+                          message="Copied Mark as SVG"
+                        >
+                          <ClipboardIcon />
+                        </Copy>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Copy Mark as SVG</p>
+                    </TooltipContent>
+                  </Tooltip>
 
-                  <Button
-                    className="size-7 text-muted-foreground"
-                    variant="secondary"
-                    size="icon"
-                    asChild
-                  >
-                    <a href="/shadcn-ui-mark.svg" download>
-                      <DownloadIcon />
-                    </a>
-                  </Button>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        className="size-7 text-muted-foreground"
+                        variant="secondary"
+                        size="icon"
+                        asChild
+                      >
+                        <a href="/shadcn-ui-mark.svg" download>
+                          <DownloadIcon />
+                        </a>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Download Mark as SVG</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </div>
               </div>
 
@@ -63,44 +108,55 @@ export default function Page() {
                   <ShadcnLogotype className="h-8" />
                 </Copy>
 
-                <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover/logotype:opacity-100">
-                  <Button variant="secondary" size="icon" asChild>
-                    <Copy
-                      className="size-7 cursor-default text-muted-foreground"
-                      value={SHADCN_UI_LOGOTYPE_SVG}
-                      message="Copied Logotype as SVG"
-                    >
-                      <ClipboardIcon />
-                    </Copy>
-                  </Button>
+                <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover/logotype:opacity-100">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="secondary" size="icon" asChild>
+                        <Copy
+                          className="size-7 cursor-default text-muted-foreground"
+                          value={SHADCN_UI_LOGOTYPE_SVG}
+                          message="Copied Logotype as SVG"
+                        >
+                          <ClipboardIcon />
+                        </Copy>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Copy Logotype as SVG</p>
+                    </TooltipContent>
+                  </Tooltip>
 
-                  <Button
-                    className="size-7 text-muted-foreground"
-                    variant="secondary"
-                    size="icon"
-                    asChild
-                  >
-                    <a href="/shadcn-ui-logotype.svg" download>
-                      <DownloadIcon />
-                    </a>
-                  </Button>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        className="size-7 text-muted-foreground"
+                        variant="secondary"
+                        size="icon"
+                        asChild
+                      >
+                        <a href="/shadcn-ui-logotype.svg" download>
+                          <DownloadIcon />
+                        </a>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Download Logotype as SVG</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </div>
               </div>
 
               <div className="text-muted-foreground">Correct brand name</div>
               <ul className="[&_li]:py-0.5">
-                {/* <li>
-                  <Copy value="shadcn">shadcn</Copy>
-                </li> */}
                 <li>
                   <Copy className="font-bold" value="shadcn/ui">
                     shadcn/ui
                   </Copy>
                 </li>
                 <li>
-                  <span className="font-mono text-sm text-balance text-muted-foreground/70">
+                  <p className="font-mono text-sm text-balance text-muted-foreground/70">
                     {"/*"} Use when entering {"`/`"} is not allowed. {"*/"}
-                  </span>
+                  </p>
                 </li>
                 <li>
                   <Copy className="font-bold" value="shadcn-ui">
@@ -111,11 +167,6 @@ export default function Page() {
 
               <div className="text-destructive">Incorrect brand name</div>
               <div className="cursor-not-allowed space-y-2 text-destructive line-through decoration-destructive/70 [&_li]:py-0.5">
-                {/* <ul>
-                  <li>Shadcn</li>
-                  <li>ShadCn</li>
-                  <li>ShadCN</li>
-                </ul> */}
                 <ul>
                   <li>Shadcn/ui</li>
                   <li>ShadCn/ui</li>
@@ -146,7 +197,16 @@ export default function Page() {
 
       <footer className="mx-auto max-w-3xl space-y-1 px-4 py-6 text-sm text-muted-foreground italic sm:px-6">
         <p className="text-balance">
-          * Unofficial page based on my personal research about shadcn.
+          * Unofficial page based on my personal research about{" "}
+          <a
+            className="font-bold"
+            href="https://x.com/shadcn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @shadcn
+          </a>
+          .
         </p>
         <p className="text-balance">
           * This site was created to share accurate information about shadcn/ui,
@@ -159,14 +219,14 @@ export default function Page() {
           >
             @shadcn
           </a>{" "}
-          finds any inaccuracies, I welcome any corrections.{" "}
+          finds any inaccuracies, I welcome any corrections. —{" "}
           <a
             className="font-bold"
             href="https://x.com/iamncdai"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @ncdai
+            @iamncdai
           </a>
         </p>
       </footer>

@@ -8,10 +8,16 @@ export const SITE_INFO = {
     title
   )}&description=${encodeURIComponent(description)}`,
   description,
-  keywords: ["shadcn", "shadcn/ui", "shadcn-ui", "shadcn-brand", "brand"],
+  keywords: [
+    "shadcn",
+    "shadcn/ui",
+    "shadcn/brand",
+    "shadcn-ui",
+    "shadcn-brand",
+  ],
 };
 
 export const META_THEME_COLORS = {
   light: "#ffffff",
-  dark: "#09090b",
+  dark: "#0a0a0a",
 };
